@@ -1,15 +1,4 @@
-/* 
-  Here are two profile objects 
-  Your challenge is to write a function called `createConversationStarters`
-  that will parse these objects and match up common attributes,
 
-  The expected output of this function can be an array or string that says something like:
-  `You both live in mumbai
-  she is from the Marathi community as well`
-
-  Hint: you can use using object access syntax, 
-  basic conditionals and array manipulation to solve this challenge
-*/
 
 const me = {
   name: "Amit",
@@ -25,7 +14,7 @@ const me = {
     state: "berlin",
     postcode: 47868
   },
-  cuisine: "Veg"
+  cuisine: "Non-Veg"
 };
 
 const partner = {
@@ -45,6 +34,44 @@ const partner = {
   cuisine: "Non-Veg"
 };
 
-/* 
-  Start writing function here
-*/
+
+
+function checkSameLocation(profileA, profileB) {
+  return profileA.location.city === profileB.location.city;
+}
+
+function checkSameCommunity(profileA, profileB) {
+  return profileA.community === profileB.community;
+}
+
+function checkSamecuisine(profileA, profileB){
+   return profileA.cuisine === profileB.cuisine;
+   
+ }
+
+ 
+
+
+function createStarters(currentUser, partner) {
+  const starters = [];
+
+  if (checkSameLocation(currentUser, partner)) {
+    starters.push(`You both live in ${currentUser.location.city}`);
+  }
+
+  if (checkSameCommunity(currentUser, partner)) {
+    starters.push(`she is from the ${currentUser.community} community as well`);
+  }
+  if (checkSamecuisine(currentUser, partner)) {
+    starters.push(`You both enjoy same ${currentUser.cuisine} cuisine`);
+  }
+  return starters;
+}
+
+
+const starters = createStarters(me, partner);
+
+starters.forEach(starter => {
+  console.log(starter);
+});
+
