@@ -17,28 +17,36 @@ const profiles = require("./userData");
   hint: google how to find type of data structures in javascript
 */
 
-console.log();
+
+function isArray (value) {
+return value && typeof value === 'object' && value.constructor === Array;
+};
+
+console.log(isArray(profiles));
 
 /*
   1.2 Log of the size of the data returned
   Expected output: "We just fetched [x] users" where x represents the actual number
 */
 
-console.log();
+console.log(profiles.length);
 
 /*
   1.3 Get the first five items from the data set
   Expected output: an array with the first 5 items
 */
-console.log();
+console.log(profiles.slice(0, 5));
 
 /*
   1.4 Remove the first profile from this data while returning it at the same time
   Expected output: a) user by the name of dânia da mota and b) an array of profiles without dânia da mota 
 */
 
-console.log();
-console.log();
+
+
+console.log(profiles.shift());
+
+console.log(profiles);
 
 /*
   1.5 Paginate the api results in sets of variable amounts
