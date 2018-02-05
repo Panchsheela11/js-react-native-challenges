@@ -16,16 +16,23 @@ const profiles = require("./data/profileData");
   Expected const firstFiveProfiles = [{}, {}, {}, {}, {}] <-- first five profile objects
 */
 
-console.log();
+var sliced = profiles.slice(0,5);
+console.log(sliced);
 
 /*
   Challenge 1.2 - Only extract the last 5 profiles out of the 20
   Expected const lastFiveProfiles = [{}, {}, {}, {}, {}] <-- last five profile objects
 */
 
-console.log();
+var sliced1 = profiles.slice(16,21);
+console.log(sliced1);
+
+
+
 
 /*
   Challenge 1.3 - Only extract the 5 profiles from the sixth object in the array to the tenth
   Expected const nextFiveProfiles = [{}, {}, {}, {}, {}] <-- index 6 to index 10
 */
+var sliced2 = profiles.slice(6,11);
+console.log(sliced2);

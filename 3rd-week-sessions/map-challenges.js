@@ -12,13 +12,20 @@
 const profiles = require("./data/profileData");
 const shaadiData = require("./data/shaadiData.json");
 
+
+
 /*
   Challenge 1.1 - write a function that returns an array of fullnames i.e. each element is a string that has
   `title, first, last` instead of those separate fields
   Expected const profileNameArrays = ['fullnameOne', 'etc', 'etc'] <-- array of strings fullnames
 */
 
-console.log(shaadiData);
+const fullName = profileData.map(data => {
+  return data.name.title + " " + data.name.first + " " + data.name.last;
+})
+
+console.log(fullName)
+
 
 /*
   Challenge 1.2 - write a function that returns an array that has users grouped by nationality

@@ -11,21 +11,28 @@
 */
 const profiles = require("./data/shaadiData.json");
 
+
 /*
   Challenge 1.1 - write a function that gets only the 
   user profiles who have never been married
-
   Expected const brazilUserProfiles = []
 */
 
-console.log();
+const maritalstatus = profiles.data.filter(data => {
+  if(data.mini_profile.marital_status === "Never Married"){
+    return true;
+  }
+})
+
+
+console.log(maritalstatus)
+
+
 
 /*
   Challenge 1.2 - write a function that gets only the 
   user profiles with college education
-
   Parse this piece of education data from the loaded json to return an array 
-
   "education": {
   "education": "High school - Arts",
   "education_stream": "Arts",
@@ -35,19 +42,31 @@ console.log();
   "college_2": "",
   "valid_college_2": "No"
 }
-
   Expected const collegeUserProfiles = []
 */
+const college1 = profiles.data.filter(data => {
+  if(data.education.valid_college_1 != "No" ||
+    data.education.valid_college_2 != "No"){
+      return true;
+  }
+})
 
-console.log();
+
+console.log(college1)
+
 
 /*
   Challenge 1.3 - write a function that gets only the 
   user profiles with more than one photo
-
   Expected const profilesWithMultiplePhotos = [] <-- nat field equals BR
   
-
 */
+const photos1 = profiles.data.filter(data => {
+  if(Object.keys(data.photo_details.photos).length > 1){
+    return true;
+  }
+})
 
-console.log();
+
+console.log(photos1)
+
